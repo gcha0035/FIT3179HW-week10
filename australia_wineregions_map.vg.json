@@ -74,7 +74,7 @@
                     },
                     "mark": {
                         "type": "geoshape",
-                        "stroke": "Grey" 
+                        "stroke": "lightgray" 
                     },
                     "encoding": {
                         "color": {
@@ -86,7 +86,7 @@
                                     "#4B0082", 
                                     "#9370DB", 
                                     "#DDA0DD", 
-                                    "#FFB6C1", 
+                                    "#755a7d", 
                                     "#FFC0CB", 
                                     "#ffb3d9" 
                                 ]
