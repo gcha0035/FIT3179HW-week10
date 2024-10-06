@@ -95,7 +95,33 @@
           {"field": "Total (Mill Ltr)", "title": "Total Volume (Mill Ltr)"}
         ]
       }
+    },{
+      "transform": [
+        {
+          "window": [{"op": "rank", "as": "ranking"}],
+          "sort": [{"field": "Total (Mill Ltr)", "order": "descending"}]
+        },
+        {
+          "filter": "datum.ranking == 1"
+        },
+        {
+          "calculate": "'The highest volume of wine production is in 2020-21 due to favorable weather conditions and increased vineyard area.'",
+          "as": "text_annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 150,
+        "dy": -125,
+        "baseline": "middle",
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "text_annotation"}
+      }
     }
+    
   ]
 }
  
