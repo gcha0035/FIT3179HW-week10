@@ -82,14 +82,7 @@
                             "type": "nominal",
                             "scale": {
                                 "domain": ["NSW", "QLD", "SA", "TAS", "VIC", "WA"],
-                                "range": [
-                                    "#4B0082", 
-                                    "#9370DB", 
-                                    "#DDA0DD", 
-                                    "#755a7d", 
-                                    "#FFC0CB", 
-                                    "#ffb3d9" 
-                                ]
+                                "range": ["#4B0082", "#7F007F", "#9370DB", "#BA4984", "#A065A8", "#D4B2D3", "#EAD1E6"]
                             },
                             "title": "State"
                         },

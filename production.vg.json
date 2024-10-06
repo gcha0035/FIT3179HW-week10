@@ -1,0 +1,47 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/gcha0035/FIT3179HW-week10/refs/heads/main/Production_over_Years.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "width": 600,
+    "height": 300,
+    "transform": [
+      {
+        "calculate": "datum['Red Wine (Mill Ltr)'] + datum['White Wine (Mill Ltr)']",
+        "as": "Total Volume"
+      },
+      {
+        "fold": ["Red Wine (Mill Ltr)", "White Wine (Mill Ltr)"],
+        "as": ["Wine Type", "Volume"]
+      }
+    ],
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {
+          "title": "Year"
+        }
+      },
+      "y": {
+        "field": "Total (Mill Ltr)",
+        "type": "quantitative",
+        "axis": {
+          "title": "Production Volume (Mill Ltr)"
+        }
+      },
+      "color": {
+        "field": "Wine Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Red Wine (Mill Ltr)", "White Wine (Mill Ltr)"],
+          "range": ["#9B1B30", "#ba4984"]
+        }
+      }
+    }
+  }
+  
