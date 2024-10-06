@@ -1,47 +1,100 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "https://raw.githubusercontent.com/gcha0035/FIT3179HW-week10/refs/heads/main/Production_over_Years.csv",
-      "format": {
-        "type": "csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/gcha0035/FIT3179HW-week10/refs/heads/main/Production_over_Years.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "width": 600,
+  "height": 300,
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year"
+          }
+        },
+        "y": {
+          "field": "Total (Mill Ltr)",
+          "type": "quantitative",
+          "axis": {
+            "title": "Production Volume (Mill Ltr)"
+          }
+        },
+        "color": {
+          "value": "#ba4984"
+        },
+        "opacity": {"value": 0.7}
       }
     },
-    "width": 600,
-    "height": 300,
-    "transform": [
-      {
-        "calculate": "datum['Red Wine (Mill Ltr)'] + datum['White Wine (Mill Ltr)']",
-        "as": "Total Volume"
-      },
-      {
-        "fold": ["Red Wine (Mill Ltr)", "White Wine (Mill Ltr)"],
-        "as": ["Wine Type", "Volume"]
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year"
+          }
+        },
+        "y": {
+          "field": "Red Wine (Mill Ltr)",
+          "type": "quantitative",
+          "axis": {
+            "title": "Production Volume (Mill Ltr)"
+          }
+        },
+        "color": {
+          "value": "#9B1B30"
+        },
+        "opacity": {"value": 0.7}
       }
-    ],
-    "mark": "area",
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "axis": {
-          "title": "Year"
-        }
+    },
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "White Wine  (Mill Ltr)",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#ba4984"
+        },
+        "opacity": {"value": 0.7}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "stroke": "#9B1B30",
+        "size": 50
       },
-      "y": {
-        "field": "Total (Mill Ltr)",
-        "type": "quantitative",
-        "axis": {
-          "title": "Production Volume (Mill Ltr)"
-        }
-      },
-      "color": {
-        "field": "Wine Type",
-        "type": "nominal",
-        "scale": {
-          "domain": ["Red Wine (Mill Ltr)", "White Wine (Mill Ltr)"],
-          "range": ["#9B1B30", "#ba4984"]
-        }
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "Total (Mill Ltr)",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {"field": "Year", "title": "Year"},
+          {"field": "Red Wine (Mill Ltr)", "title": "Red Wine Volume (Mill Ltr)"},
+          {"field": "White Wine  (Mill Ltr)", "title": "White Wine Volume (Mill Ltr)"},
+          {"field": "Total (Mill Ltr)", "title": "Total Volume (Mill Ltr)"}
+        ]
       }
     }
-  }
-  
+  ]
+}

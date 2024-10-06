@@ -74,7 +74,8 @@
                     },
                     "mark": {
                         "type": "geoshape",
-                        "stroke": "lightgray" 
+                        "stroke": "lightgray",
+                        "opacity": 0.5
                     },
                     "encoding": {
                         "color": {
